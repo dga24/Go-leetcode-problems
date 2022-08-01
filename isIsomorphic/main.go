@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 	"strings"
 )
 
@@ -12,7 +11,9 @@ func main() {
 	fmt.Println(isIsomorphic(s,t))
 
 }
+	
 
+//this work on 41/43 tests
 func isIsomorphic(s string, t string) bool {
 	sls := strings.Split(s, "")
 	slt := strings.Split(t, "")
@@ -41,33 +42,3 @@ func isIsomorphic(s string, t string) bool {
 	return true
 
 }
-
-
-func isIsomorphicOld(s string, t string) bool {
-	sls := strings.Split(s, "")
-	slt := strings.Split(t, "")
-	if len(sls) != len(slt){
-		return false
-	}
-	mapas := make([]int,len(sls))
-	mapat := make([]int,len(sls))
-	for i := 0; i < len(sls); i++ {
-		for j := 0; j < len(sls); j++ {
-			if sls[j] == sls[i]{
-				mapas[j]=1
-			}else{
-				mapas[j]=0
-			}
-			if slt[j] == slt[i]{
-				mapat[j]=1
-			}else{
-				mapat[j]=0
-			}
-		}
-		if !reflect.DeepEqual(mapas,mapat){
-			return false
-		}
-	}
-	return true
-}
-	
